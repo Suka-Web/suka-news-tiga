@@ -138,10 +138,22 @@ add_action( 'widgets_init', 'suka_news_satu_widgets_init' );
 
 function suka_news_satu_get_news_meta( $post_id = 0 ) {
 	$post_id = $post_id ? absint( $post_id ) : get_the_ID();
-	$views   = function_exists( 'suka_core_get_post_views' ) ? suka_core_get_post_views( $post_id ) : 0;
+	$date    = sprintf(
+		'<time datetime="%1$s">%2$s</time>',
+		esc_attr( get_the_date( DATE_W3C, $post_id ) ),
+		esc_html( get_the_date( '', $post_id ) )
+	);
+
+	// Penghitung dilihat milik plugin Suka Core; ikut hilang saat opsinya dimatikan.
+	if ( ! function_exists( 'suka_core_get_post_views' ) || ( function_exists( 'suka_core_post_views_enabled' ) && ! suka_core_post_views_enabled() ) ) {
+		return '<div class="news-meta">' . $date . '</div>';
+	}
+
+	$views = suka_core_get_post_views( $post_id );
+
 	return sprintf(
-		'<div class="news-meta"><time datetime="%1$s">%2$s</time><span class="news-views" aria-label="%3$s"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.5"/></svg><span>%4$s</span></span></div>',
-		esc_attr( get_the_date( DATE_W3C, $post_id ) ), esc_html( get_the_date( '', $post_id ) ),
+		'<div class="news-meta">%1$s<span class="news-views" aria-label="%2$s"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.5"/></svg><span>%3$s</span></span></div>',
+		$date,
 		esc_attr( sprintf( _n( '%s kali dilihat', '%s kali dilihat', $views, 'suka-news' ), number_format_i18n( $views ) ) ),
 		esc_html( number_format_i18n( $views ) )
 	);
