@@ -217,6 +217,33 @@ function suka_news_satu_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_section(
+		'suka_news_satu_header',
+		array(
+			'title'       => __( 'Header', 'suka-news' ),
+			'description' => __( 'Atur elemen yang tampil pada bagian atas situs.', 'suka-news' ),
+			'priority'    => 33,
+		)
+	);
+
+	$wp_customize->add_setting(
+		'suka_news_satu_ticker',
+		array(
+			'default'           => true,
+			'sanitize_callback' => 'suka_news_satu_sanitize_checkbox',
+		)
+	);
+
+	$wp_customize->add_control(
+		'suka_news_satu_ticker',
+		array(
+			'label'       => __( 'Tampilkan ticker berita terkini', 'suka-news' ),
+			'description' => __( 'Baris berjalan berisi delapan berita terbaru di bawah menu utama.', 'suka-news' ),
+			'section'     => 'suka_news_satu_header',
+			'type'        => 'checkbox',
+		)
+	);
+
+	$wp_customize->add_section(
 		'suka_news_satu_single',
 		array(
 			'title'       => __( 'Artikel Single', 'suka-news' ),

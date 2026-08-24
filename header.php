@@ -94,6 +94,7 @@
 		</div>
 	</div>
 
+	<?php if ( get_theme_mod( 'suka_news_satu_ticker', true ) ) : ?>
 	<?php $ticker_query = new WP_Query( array( 'post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => 8, 'no_found_rows' => true ) ); ?>
 	<?php if ( $ticker_query->have_posts() ) : ?>
 		<div class="news-ticker" aria-label="<?php esc_attr_e( 'Berita terkini', 'suka-news' ); ?>">
@@ -106,6 +107,7 @@
 			</div>
 		</div>
 		<?php wp_reset_postdata(); ?>
+	<?php endif; ?>
 	<?php endif; ?>
 </header>
 

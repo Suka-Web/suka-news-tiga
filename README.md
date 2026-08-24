@@ -9,6 +9,10 @@ Tema klasik WordPress untuk portal berita keluarga Suka News.
 - Template single, archive, search, page, 404, dan sidebar.
 - Integrasi plugin Suka Core untuk banner, views, share, SEO, dan schema.
 
+## Opsi Customizer
+
+- **Header → Tampilkan ticker berita terkini** (`suka_news_satu_ticker`, default aktif): mematikannya menghilangkan baris berjalan di bawah menu utama sekaligus melewati query 8 berita terbarunya.
+
 ## Quality gate
 
 ```bash
