@@ -11,7 +11,7 @@ Tema klasik WordPress untuk portal berita keluarga Suka News.
 
 ## Opsi Customizer
 
-- **Warna → Warna Teks** (`suka_news_satu_text_color`, bawaan `#1f2937`): warna teks isi di seluruh halaman. Dikirim sebagai `--color-text` dan dipakai `body`, sehingga semua teks yang tidak punya warna khusus ikut berubah. Judul dan tautan memakai `--color-base`/`--color-accent`, jadi tidak terpengaruh.
+- **Warna → Warna Teks** (`suka_news_satu_text_color`, bawaan `#1f2937`): warna teks isi di seluruh halaman. Dikirim sebagai `--color-text` dan dipakai `body`, sehingga semua teks yang tidak punya warna khusus ikut berubah. Judul berita di semua template (beranda, single, arsip, terkait, 404, berita pilihan) serta heading di dalam isi artikel juga memakai warna ini. Yang tetap memakai `--color-base` hanya elemen navigasi: menu, ticker, tombol header, kotak cari, nomor halaman, navigasi antar-pos, tag, dan judul komentar.
 - **Header → Tampilkan ticker berita terkini** (`suka_news_satu_ticker`, default aktif): mematikannya menghilangkan baris berjalan di bawah menu utama sekaligus melewati query 8 berita terbarunya.
 
 ## Quality gate
