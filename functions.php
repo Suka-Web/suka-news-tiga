@@ -69,6 +69,7 @@ function suka_news_satu_enqueue_assets() {
 
 	$base_color   = sanitize_hex_color( get_theme_mod( 'suka_news_satu_base_color', '#0f172a' ) );
 	$accent_color = sanitize_hex_color( get_theme_mod( 'suka_news_satu_accent_color', '#b91c1c' ) );
+	$text_color   = sanitize_hex_color( get_theme_mod( 'suka_news_satu_text_color', '#1f2937' ) );
 
 	if ( ! $base_color ) {
 		$base_color = '#0f172a';
@@ -78,12 +79,17 @@ function suka_news_satu_enqueue_assets() {
 		$accent_color = '#b91c1c';
 	}
 
+	if ( ! $text_color ) {
+		$text_color = '#1f2937';
+	}
+
 	wp_add_inline_style(
 		'suka-news-satu-style',
 		sprintf(
-			':root{--color-base:%1$s;--color-accent:%2$s;}',
+			':root{--color-base:%1$s;--color-accent:%2$s;--color-text:%3$s;}',
 			$base_color,
-			$accent_color
+			$accent_color,
+			$text_color
 		)
 	);
 
@@ -211,6 +217,26 @@ function suka_news_satu_customize_register( $wp_customize ) {
 			array(
 				'label'       => __( 'Warna Dasar', 'suka-news' ),
 				'description' => __( 'Digunakan pada navigasi dan elemen utama yang gelap.', 'suka-news' ),
+				'section'     => 'colors',
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		'suka_news_satu_text_color',
+		array(
+			'default'           => '#1f2937',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'suka_news_satu_text_color',
+			array(
+				'label'       => __( 'Warna Teks', 'suka-news' ),
+				'description' => __( 'Warna teks isi di seluruh halaman: paragraf berita, ringkasan, dan teks yang tidak memakai warna khusus.', 'suka-news' ),
 				'section'     => 'colors',
 			)
 		)
