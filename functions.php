@@ -183,6 +183,7 @@ function suka_news_satu_get_social_links() {
 		'youtube'   => array( 'YouTube', '<path d="M22 12s0-4-1-6c-.5-1-1.5-1.5-2.5-1.5C16.5 4 12 4 12 4s-4.5 0-6.5.5C4.5 4.5 3.5 5 3 6c-1 2-1 6-1 6s0 4 1 6c.5 1 1.5 1.5 2.5 1.5C7.5 20 12 20 12 20s4.5 0 6.5-.5c1 0 2-.5 2.5-1.5 1-2 1-6 1-6Z"/><path d="m10 9 5 3-5 3V9Z" class="icon-fill"/>' ),
 		'tiktok'    => array( 'TikTok', '<path class="icon-fill" d="M14.2 3h3.1c.3 1.7 1.3 3.1 3.2 3.6v3.1a8.3 8.3 0 0 1-3.2-1v6.1a6 6 0 1 1-5.2-5.9V12a2.9 2.9 0 1 0 2.1 2.8V3Z"/>' ),
 		'threads'   => array( 'Threads', '<circle cx="12" cy="12" r="9"/><path d="M8.5 9.2c.7-1.8 4.8-2.5 6.5-.4 1.6 2 .8 6.6-2.5 7-2.8.4-4.1-2.7-2.2-4.2 1.5-1.2 5-.5 6.3.7"/>' ),
+		'whatsapp'  => array( 'WhatsApp', '<path d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.6-4A8 8 0 1 1 20 11.5Z"/><path class="icon-fill" d="M9.5 8.4c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.5l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3 0 .6.3.5.8 1.1 1.4 1.5.5.4.8.5 1 .3l.5-.5c.2-.2.4-.2.6-.1l1.3.7c.2.1.3.3.3.5 0 .6-.5 1.3-1.1 1.4-.6.1-1.4.2-3.1-.7-1.9-1-3.1-2.9-3.2-3.1-.1-.2-.7-1-.7-2 0-.9.5-1.3.6-1.5Z"/>' ),
 	);
 	$links = array();
 	foreach ( $icons as $network => $icon ) {
@@ -367,6 +368,7 @@ function suka_news_satu_customize_register( $wp_customize ) {
 		'youtube'   => __( 'URL YouTube', 'suka-news' ),
 		'tiktok'    => __( 'URL TikTok', 'suka-news' ),
 		'threads'   => __( 'URL Threads', 'suka-news' ),
+		'whatsapp'  => __( 'URL WhatsApp', 'suka-news' ),
 	);
 
 	foreach ( $social_networks as $network => $label ) {
